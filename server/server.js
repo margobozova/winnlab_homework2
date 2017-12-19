@@ -14,7 +14,7 @@ app.get('/get-from-object/:name', (req, res) => {
 app.post('/set-in-object', (req, res) => {
   res.send(req.body);
   console.log(req.body);
-  request.post('http://second:3000/set', JSON.stringify(req.body));
+  request.post('http://second:3000/set', req.body);
 });
 
 export default app;
