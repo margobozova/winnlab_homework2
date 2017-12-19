@@ -1,20 +1,19 @@
 version: '2.1'
 services:
   server:
-    build: .
+    build: ./server
     command: npm run start:dev
     volumes:
-      - .:/usr/app
+      - .:/usr/app/
       - /usr/app/node_modules
-      - ./volumes/conf.d:/etc/server/conf.d
     ports:
       - 3008:3008
     container_name: 'server'
   second:
-    build: .
+    build: ./second
     command: npm run start:dev-second
     volumes:
-      - .:/usr/app
+      - .:/usr/app/
       - /usr/app/node_modules
     ports:
       - 3000:3000
