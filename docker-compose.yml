@@ -1,0 +1,20 @@
+version: '2.1'
+services:
+  server:
+    build: .
+    command: npm run start:dev
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - 3008:3008
+    container_name: 'server'
+  second:
+    build: .
+    command: npm run start:dev-second
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - 3000:3000
+    container_name: 'second'

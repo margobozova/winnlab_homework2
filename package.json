@@ -1,0 +1,53 @@
+{
+  "name": "winnlab_homework2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=5.5.1",
+    "node": ">=8.9.1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-decorators",
+      "transform-react-constant-elements",
+      "transform-react-inline-elements"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "env": {
+      "node": true,
+      "es6": true
+    }
+  },
+  "scripts": {
+    "start": "babel-node server",
+    "start:second": "babel-node second",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon --watch ./server -x \"npm run start\"",
+    "start:dev-second": "nodemon --watch ./second -x \"npm run start:second\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.12.5"
+  }
+}
