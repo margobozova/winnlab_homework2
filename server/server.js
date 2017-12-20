@@ -7,7 +7,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/get-from-object/:name', (req, res) => {
-  res.send(req.params.name);
   request.get(`http://second:3000/get/?name=${req.params.name}`, (err, resp, body) => {
     res.send(body);
   });
