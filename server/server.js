@@ -8,21 +8,14 @@ app.use(bodyParser.json());
 
 app.get('/get-from-object/:name', (req, res) => {
   res.send(req.params.name);
-  request.get(`http://second:3000/get/?name=${req.params.name}`);
+  request.get(`http://second:3000/get/?name=${req.params.name}`, (err, resp, body) => {
+    res.send(body);
+  });
 });
 
 app.post('/set-in-object', (req, res) => {
   res.send(req.body);
-  request({
-    method: 'POST',
-    uri: 'http://second:3000/set',
-    multipart: [
-      {
-        'content-type': 'application/json',
-        body: JSON.stringify(req.body),
-      },
-    ],
-  });
+  request.post('http://second:3000/set').form(req.body);
 });
 
 export default app;
