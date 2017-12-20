@@ -12,6 +12,7 @@ const band = {
 
 app.get('/get', (req, res) => {
   const { name } = req.query;
+
   res.send(band[name]);
   console.log(band[name]);
 });
@@ -20,7 +21,7 @@ app.post('/set', (req, res) => {
   const keys = Object.keys(req.body);
   keys.map(key => (band[key] = req.body[key]));
   res.send(band);
-  console.log(req.body);
+  console.log(req);
 });
 
 export default app;

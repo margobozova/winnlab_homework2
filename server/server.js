@@ -13,8 +13,16 @@ app.get('/get-from-object/:name', (req, res) => {
 
 app.post('/set-in-object', (req, res) => {
   res.send(req.body);
-  console.log(req.body);
-  request.post('http://second:3000/set', req.body);
+  request({
+    method: 'POST',
+    uri: 'http://second:3000/set',
+    multipart: [
+      {
+        'content-type': 'application/json',
+        body: JSON.stringify(req.body),
+      },
+    ],
+  });
 });
 
 export default app;
